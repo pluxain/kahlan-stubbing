@@ -12,4 +12,9 @@ describe('function stubbing', function() {
         expect(callTestStubbing())->toBe('Function stubbing hijacked you !');
     });
 
+    it('stubs native functions as documentation mentions', function() {
+        allow('time')->toBeCalled()->andReturn(123);
+        expect(time())->toBe(123);
+    });
+
 });
